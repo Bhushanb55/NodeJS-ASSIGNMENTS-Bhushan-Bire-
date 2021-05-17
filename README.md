@@ -1,2 +1,2 @@
-# NodeJS-Framework---ASSIGNMENTS
-This repository is for the assignments in the NodeJS Framework.
+# NodeJS Framework Stack - ASSIGNMENTS
+This repository is for the assignments in the NodeJS Framework Stack.
