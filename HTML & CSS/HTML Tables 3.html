@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+            <style>
+                table, th, td {
+                    border: 3px solid black;
+                    border-collapse: collapse;
+                }
+
+                    table tr#ROW1  {background-color:green; color:black;}
+                    table tr#ROW2  {background-color:rgb(83, 81, 77);}
+                    table td#CELL3 {background-color:rgb(180, 168, 168);}
+               
+            </style>
+        </head>
+    <body>
+
+        <h2>Table 1</h2>
+        <hr>
+        <h3>color tables</h3>
+
+        <table style="width:100%">
+            <table>
+                <tr id="ROW1">
+                    <td colspan="2">top</td>
+                </tr>
+                <tr id="ROW2">
+                    <td>left</td>
+                    <td id="CELL3">right</td>
+                    
+                </tr>
+            </table>
+            <br>
+
+        </table>
+    </body>
+</html>
