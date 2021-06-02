@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+          body {
+        font-family: 'Raleway', sans-serif;
+        background: rgba(242, 242, 242, .6);
+        margin: 0;
+      }
+      html {
+        box-sizing: border-box;
+        
+        scroll-behavior: smooth;
+      }
+
+      
+      /*NAVBAR*/
+      .navbar {
+        background-color: darkred;
+        position: fixed; /* Set the navigation bar to fixed position */
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+        display: flex;
+        justify-content: center;
+        padding: 0.8rem;
+        
+      }
+      
+      .navbar a {
+        font-weight: 200;
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 1.2rem
+      }
+      
+      .anchor {
+        display: block;
+        position: relative;
+        top: -70px;
+        visibility: hidden;
+        
+      }
+      
+      /*welcome-section*/
+      .welcome-section {
+        height: 100vh; /*height to 100% of view height*/
+        background: #31b0d5; /*background color to blue*/
+        margin-bottom: 0; /*no bottom margin*/
+      
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .welcome-section-text {
+        /*TAGLINE UNDER NAME*/
+        font-weight: 400;
+        font-size: 2em;
+        color: white;
+        text-align: center;
+        padding-top: 150px;
+      }
+      
+      .welcome-section-text h1 {
+        /*YOUR NAME*/
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 3em;
+        margin-bottom: 0;
+      }
+      
+      .welcome-section-text p {
+        margin: 0;
+      }
+      
+      /*SOCIAL LINKS*/
+      .ul-social {
+        text-align: center;
+        padding-left: 0;
+      }
+      
+      .li-social-links {
+        display: inline-block;
+        list-style: none;
+      }
+      
+      .social {
+        font-size: 4em;
+        color: white;
+        padding: 20px;
+      }
+      
+      /*ARROW LINK*/
+      #down-arrow {
+        /*position: absolute;
+        width: 100%;*/
+        margin-top: auto;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      
+      #down-arrow a {
+        color: white;
+      }
+      
+      /*CONTENT*/
+      .container {
+        /*sets up flexbox*/
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .row {
+        display: flex;
+      }
+      
+      .white {
+        background: white;
+      }
+      
+      .side-content {
+        flex: 0 0 16.6%;
+      }
+      
+      .main-content {
+        flex: 0 0 66.6%;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+      }
+      
+      .side-content-sm {
+        flex: 0 0 10%;
+      }
+      
+      .main-content-lg {
+        flex: 0 0 80%;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+      }
+      
+      .box-shadow {
+        -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+      }
+      
+      h2 {
+        font-weight: 400;
+        font-size: 2rem;
+        color: #31b0d5;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      
+      .content-body {
+        line-height: 2;
+        color: rgba(0,0,0,.75);
+      }
+      
+      /*EDUCATION*/
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        margin-bottom: 30px;
+      }
+      
+      .card-header {
+        padding: .75rem 1.25rem;
+        background-color: white;
+        border-bottom: 1px solid rgba(0,0,0,.075);
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+      }
+      
+      .card-content {
+        padding: .25rem 1.25rem;
+        flex: 1 1 auto;
+      }
+      
+      h4 {
+        margin: 0;
+        font-weight: 400;
+        color: grey;
+      }
+      
+      .job-title {
+        float: right;
+      }
+      
+      /*PROJECTS*/
+      .project-card {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: 5px;
+        margin-bottom: 30px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.15);
+      }
+      
+      .project-image {
+        flex: 1 0 auto;
+      }
+      
+      .project-image img {
+        display: block;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      
+      .project-content {
+        flex: 1 1 auto;
+        padding: 1.25rem;
+      
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      /*SKILLS*/
+      .ul-skills {
+        text-align: center;
+        padding-left: 0;
+        
+      }
+      
+      .li-skills {
+        display: inline-block;
+        margin: 7px;
+        padding: 5px 10px;
+        color: white;
+        background: #31b0d5;
+        list-style: none;
+        cursor: default;
+        font-size: 1.2em;
+      }
+      
+      /*CONTACT*/
+      .blue {
+        background: #3498db;
+        text-align: center;
+      }
+      
+      .contact {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      
+      .contact input, .contact textarea {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+        margin-bottom: 10px;
+        background: #1d6fa5;
+        color: #fff;
+        -webkit-transition: .5s ease all;
+        transition: .5s ease all;
+      }
+      
+      .contact textarea {
+        height: 150px;
+        resize: none;
+      }
+      
+      .contact button {
+        display: block;
+        width: 100%;
+        background: #fff;
+        border-radius: 4px;
+        padding: 5px 10px;
+        border: none;
+        color: #3498db;
+        font-weight: 700;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        -webkit-transition: .5s ease all;
+        transition: .5s ease all;
+      }
+      
+      .white-text {
+        color: white;
+      }
+    
+    </style>
+
+    <meta charset="utf-8">
+    <title>PORTFOLIO - BHUSHAN BIRE</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <!-- BEGIN NAVBAR -->
+    <div class="navbar">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <!-- END NAVBAR -->
+
+    <div class="container">
+
+      <!-- HEADER -->
+      <div class="welcome-section">
+        <div class="welcome-section-text">
+          <h1>BHUSHAN BIRE</h1>
+          <p>Software Engineer at Capgemini in Mumbai Maharashtra, India.</p>
+        </div>
+        <div class="welcome-section-social">
+          <ul class="ul-social">
+            <li class="li-social-links">
+              <a class="social" href="https://github.com/Bhushanb55" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+            </li>
+            <li class="li-social-links">
+              <a class="social" href="https://www.linkedin.com/feed/update/urn:li:activity:6801937515378036736/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </li>
+            <li class="li-social-links">
+              <a class="social" href="mailto:b55bhushan@gmail.com" target="_blank"><i class="fa fa-at" aria-hidden="true"></i></a>
+            </li>
+            <li class="li-social-links">
+              <a class="social" href="https://www.google.com/search?q=Bhushan+Bire&sxsrf=ALeKk00Tc_YUigw1P9B3yVo_NcHxCrC3cA%3A1621952864661&ei=YAmtYMjQJ9bXz7sPzvu6oA4&oq=Bhushan+Bire&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEA0QHjIGCAAQFhAeMggIABANEAUQHjoHCCMQsAMQJzoECCMQJzoHCCMQ6gIQJzoKCCMQ6gIQJxCLAzoECAAQQzoFCC4QkQI6BAguEEM6BQgAEJECOgcIABBDEIsDOggILhCRAhCTAjoICAAQsQMQgwE6CwgAELEDEIMBEMkDOgUIABCSAzoLCC4QsQMQkQIQkwI6CgguEIcCELEDEBQ6BwgAELEDEEM6BQguELEDOgcILhCxAxBDOgcIABCHAhAUOgoIABCxAxCDARBDOggIABCxAxCLAzoHCAAQyQMQQzoKCAAQsQMQQxCLAzoNCC4QhwIQsQMQFBCTAjoCCAA6CAguEMcBEK8BOgoIABCHAhAUEIsDOgQIABAKOgcIABDJAxAKOgcIABAKEIsDOggIABAWEAoQHjoJCAAQFhAeEIsDUMckWLFGYL5JaAJwAHgEgAHmAogBpCeSAQYyLTE0LjSYAQCgAQGqAQdnd3Mtd2l6sAEKyAEBuAECwAEB&sclient=gws-wiz&ved=0ahUKEwjIgNyiheXwAhXW63MBHc69DuQQ4dUDCA4&uact=5" 
+              target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div id="down-arrow">
+          <span><a href="#about"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></span>
+        </div>
+      </div>
+      <!-- END HEADER -->
+
+
+
+      <!-- BEGIN ABOUT -->
+      <div class="row white box-shadow">
+        <div class="side-content"></div>
+        <div class="main-content">
+          <div class="content-header">
+            <a class="anchor" name="about"></a>
+            <h2>About</h2>
+          </div>
+          <div class="content-body">
+            <p><b><i>✨" The harder you work for something, the greater you’ll feel when you achieve it. The key to success is to focus on goals, not obstacles”</i></b></p>
+            <p>Let us change our traditional attitude to the construction of programs👨‍🎓: Instead of imagining that our main task is to instruct a computer what to do, let us 
+              concentrate rather on explaining to human beings what we want a computer to do🤷🏻‍♂. [I know a few languages in the computer world is most important like C++, HTML, Java, Python, 
+              Javascript and love to learn new things, not obstacles.</p>
+            <p>✍A lot of people quit looking for work as soon as they find a job. I looking towards more job opportunities and I believe myself to one day is me to achieve my goals.😎</p>
+            </div>
+        </div>
+        <div class="side-content"></div>
+      </div>
+      <!-- END ABOUT -->
+
+      <!-- BEGIN EXPERIENCE -->
+      <div class="row">
+        <div class="side-content"></div>
+        <div class="main-content">
+          <div class="content-header">
+            <a class="anchor" name="experience"></a>
+            <h2>Experience</h2>
+          </div>
+          <!-- CARD #1 -->
+          <div class="content-body">
+            <div class="card">
+              <div class="card-header">
+                <h4><b>CAPGEMINI <span class="job-title">SOFTWARE ENGINEER</b></span></h4>
+              </div>
+              <div class="card-content">
+                <p>Appointed as a <i>Software Engineer</i> in Node JS which i have to train in domains like Version Control System, NOSQL Database, SCripting Node and AWS.</p>
+                <p>In account to this this domains have specific modules given Below:
+                  <ul>
+                    <li>Version Control System - Git & Github</li>
+                    <li>NOSQL Database - MongoDB</li>
+                    <li>Scripting - JavaScript, ES6 & TypeScript</li>
+                    <li>NodeJS - Express Framework, REST API with NodeJS, 
+                      Node JS API Testing Mocha, Chai, Node Code Coverage using Instanbul, 
+                      Microservices with NodeJS
+                    </li>
+                    <li>AWS - Serverless AWS Lambda with NodeJS, AWS Additional Services</li> 
+                  </ul>
+                </p>
+              </div>
+            </div>
+
+          <!-- CARD #2 -->
+
+            <div class="card">
+              <div class="card-header">
+                <h4><b>J.P. Morgan Chase & Co.<span class="job-title">INTERNSHIP</b></span></h4>
+              </div>
+              <div class="card-content">
+                <p>It's a Virtual Internship by J.P. Morgan Chase & Co. on Inside Sherpa Platform 
+                  in which I have to Develop some Money Spending and Lending graphs using React JS. Analysis of the code and some improvements in that code, They gave 5 modules to solve for completing this Internship by our side.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="side-content"></div>
+      </div>
+      <!-- END EXPERIENCE -->
+
+      <!-- BEGIN EDUCATION -->
+      <div class="row white box-shadow">
+        <div class="side-content"></div>
+        <div class="main-content">
+          <div class="content-header">
+            <a class="anchor" name="education"></a>
+            <h2>Education</h2>
+          </div>
+          <div class="content-body">
+
+            <!-- EDUCATION 1 -->
+            <div class="card">
+              <div class="card-header">
+                <h4><b>KaviKulguru Institute of Technology and Science, Ramtek
+                   <span class="job-title">2016 - 2020</b></span></h4>
+              </div>
+              <div class="card-content">
+                <p>Activities and Societies: 
+                  <ul><space>
+                    <li>Certification in “Oracle Cloud Infrastructure Architect 2019 Professional”</li>
+                    <li>Certification in “Oracle Cloud Infrastructure Foundations 2020 Associate”.</li>
+                    <li>Certification in “Data Management Tools and Applications for SAS Data Scientists”.</li>
+                    <li>Certification in “Introduction to Data Curation for SAS Data Scientists”.</li>
+                    <li>Presented a Research Paper on the topic “IoT Based Underground Cable Fault Detection” in National Student Technical Conference on Natural and Engineered Sustainable Technologies.</li>
+                    <li>Undergone 2 days Workshop of “Android Application Development” by Tops Technology.</li>
+                    <li></li>
+                  </space>
+                  </ul>
+                  </p>
+
+                <p>Rankings:
+                  <ul>
+                    <space>
+                      <li>Codechef - 2 Star</li>
+                      <li>HackerRank - 4 Star at SQL & 5 star at Java</li>
+                    </space>
+                  </ul>
+                </p>
+              </div>
+            </div>
+            
+
+          </div>
+        </div>
+        <div class="side-content"></div>
+      </div>
+      <!-- END EDUCATION -->
+
+      <!-- BEGIN PROJECTS -->
+      <div class="row">
+        <div class="side-content-sm"></div>
+        <div class="main-content-lg">
+          <div class="content-header">
+            <a class="anchor" name="projects"></a>
+            <h2>Projects</h2>
+          </div>
+          <div class="content-body">
+            <!-- CARD #1 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="PortfolioCanteen.jpg">
+              </div>
+              <div class="project-content">
+                <h4><b>Android Application for Canteen Food Order System</b> - (Dec 2018 – Mar 2019)</h4>
+                <p>
+                  <ul>
+                    <li>Programming Language: Java</li>
+                    <li>This Application enables the end-users to register online, read, and select the food from the menu card and order food online.</li>
+                    <li>Canteen food order system is paperless. </li>
+                    <li>Manage the problem of an increased crowd in the canteen.</li>
+                    <li>Prerequisites: Android Studio, Firebase, Java NetBeans IDE.</li> 
+                  </ul>
+                </p>
+                <a href="https://github.com/Bhushanb55/Canteen-Food-Ordering-System-Application">Link Text</a>
+              </div>
+            </div>
+            <!-- CARD #2 -->
+            <div class="project-card">
+              <div class="project-image">
+                <img src="PortfolioFakeNews.jpg">
+              </div>
+              <div class="project-content">
+                <h4><b>Fake News Detection</b> - (July 2019 – Feb 2020)</h4>
+                <p>
+                  <ul>
+                    <li>Programming Language: Python</li>
+                    <li>System analyze fake news which shared on twitter using various ML algorithms.</li>
+                    <li>Collect twitter data data for test, train, and validation after that it shows the Probability Score of each algorithm.</li>
+                    <li>Best-scored algorithm in feature selection for designing the output.</li>
+                    <li>Prerequisites: Anaconda, Spyder IDE.</li>
+                  </ul>
+                </p>
+                <a href="https://github.com/Bhushanb55/Fake-News-Analysis-on-Twitter-using-Machine-Learning-Techniques">Link Text</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="side-content-sm"></div>
+      </div>
+      <!-- END PROJECTS -->
+
+      <!-- BEGIN SKILLS -->
+      <div class="row white box-shadow">
+        <div class="side-content"></div>
+        <div class="main-content">
+          <div class="content-header">
+            <a class="anchor" name="skills"></a>
+            <h2>Skills</h2>
+          </div>
+          <div class="content-body">
+            <ul class="ul-skills">
+              <li class="li-skills">HTML</li>
+              <li class="li-skills">CSS</li>
+              <li class="li-skills">C++</li>
+              <li class="li-skills">JAVA</li>
+              <li class="li-skills">PYTHON</li>
+              <li class="li-skills">OCI INFRASTRUCTURE</li>
+              <li class="li-skills">FIREBASE</li>
+              <li class="li-skills">MY SQL</li>
+              <li class="li-skills">MongoDB</li>
+              <li class="li-skills">Git</li>
+              <li class="li-skills">Github</li>
+              <li class="li-skills">Android Studio</li>
+              <li class="li-skills">ANACONDA</li>
+              <li class="li-skills">SPYDER</li>
+              <li class="li-skills">Jupyter NoteBook</li>
+              <li class="li-skills">SOFTWARE DEVELOPMENT LIFE CYCLE</li>
+              <li class="li-skills">LINUX</li>
+            </ul>
+          </div>
+        </div>
+        <div class="side-content"></div>
+      </div>
+      <!-- END SKILLS -->
+
+      <!-- BEGIN CONTACT -->
+
+      <div class="row blue">
+        <div class="side-content"></div>
+        <div class="main-content">
+          <div class="content-header">
+            <a class="anchor" name="contact"></a>
+            <h2 class="white-text">Contact Me</h2>
+          </div>
+          <div class="contact content-body">
+            <form method="POST" action="https://admin.typeform.com/accounts/01F6JH806282F3J6RRHZMF68BT/workspaces/v8d85N">
+                <input type="hidden" name="_subject" value="Contact request from personal website" />
+                <input type="email" name="_replyto" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="side-content"></div>
+      </div>
+      <!-- END CONTACT -->
+
+      <!-- BEGIN FOOTER -->
+      <div class="row">
+        <div class="side-content"></div>
+        <div class="main-content">
+          <div class="content-header">
+          </div>
+          <div class="content-body">
+            <p>© BHUSHAN BIRE 2021</p>
+          </div>
+        </div>
+        <div class="side-content"></div>
+      </div>
+      <!-- END FOOTER -->
+
+    </div>
+  </body>
+</html>
